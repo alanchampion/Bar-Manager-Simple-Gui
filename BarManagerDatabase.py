@@ -24,6 +24,48 @@ def string_front_found(string1, string2):
         return True
     return False
 
+def get_categories(cursor):
+    categories = []
+    category_rows = cursor.execute("SELECT category.name FROM category;")
+    for category in category_rows:
+        categories.append(category[0])
+    return categories
+
+def get_flavors(cursor):
+    flavors = []
+    flavor_rows = cursor.execute("SELECT flavor.name FROM flavor;")
+    for flavor in flavor_rows:
+        flavors.append(flavor[0])
+    return flavors
+
+def get_glasses(cursor):
+    glasses = []
+    glass_rows = cursor.execute("SELECT glass.name FROM glass;")
+    for glass in glass_rows:
+        glasses.append(glass[0])
+    return glasses
+
+def get_ingredients(cursor):
+    ingredients = []
+    ingredient_rows = cursor.execute("SELECT ingredient.name FROM ingredient;")
+    for ingredient in ingredient_rows:
+        ingredients.append(ingredient[0])
+    return ingredients
+
+def get_units(cursor):
+    units = []
+    unit_rows = cursor.execute("SELECT unit.name FROM unit;")
+    for unit in unit_rows:
+        units.append(unit[0])
+    return units
+
+def get_types(cursor):
+    types = []
+    type_rows = cursor.execute("SELECT type.name FROM type;")
+    for type in type_rows:
+        types.append(type[0])
+    return types
+
 def get_ingredients_from_recipe_ids(cursor, recipe_ids):
     if len(recipe_ids) == 0:
         print("No recipes specified")
